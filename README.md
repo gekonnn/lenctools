@@ -1,21 +1,19 @@
 # lenctools
-<p>"lenctools" is a set of tools used to decompile .lenc files into .lua files and vice versa.</p>
+<p>lenctools is a set of tools used to decompile .lenc files into .lua files and vice versa.</p>
 
-Telltale games use <b>.lenc</b> files which store the Lua bytecode.<br/>
-The .lenc format in some cases (especially in older Telltale games) utilizes swapping [opcodes](https://en.wikipedia.org/wiki/Opcode), which basically means they cannot be compiled or decompiled using standard tools.
+Telltale games use <b>.lenc</b> files which store the Lua bytecode, which in some cases (especially in older Telltale games) use swapped [opcodes](https://en.wikipedia.org/wiki/Opcode), which basically means they cannot be compiled or decompiled using standard tools.
+
+> [!IMPORTANT]
+> All tools contained in this repository are supposed to be used on Lua 5.1 scripts and bytecode with swapped opcodes!
 
 ## Tools
-lenctools includes Lua 5.1.2 ([luac](https://www.lua.org/manual/5.1/luac.html)) and [unluac](https://sourceforge.net/projects/unluac/), both modified for use with the swapped opcodes.<br/>
-- The `luac` tool will compile only into the Lua 5.1 bytecode.
-- Opcodes in `unluac` were modified only for Lua version 5.1, meaning it will work with any other bytecode versions, without them being changed.
+lenctools includes Lua 5.1.2 ([luac](https://www.lua.org/manual/5.1/luac.html)) and [unluac](https://sourceforge.net/projects/unluac/), both modified for use with the `.lenc` files using swapped opcodes.<br/><br/>
+Alternatively, instead of using modified `unluac` you can also use the original version with the `--opmap` parameter specifying the [opmap.txt](misc/opmap.txt) file, included in the repository.
 
 ## Support
 `luac` and `unluac` were tested and confirmed working on following games:
-- The Walking Dead: A New Day
-- The Walking Dead Season 2
-
-# License
-This project is licensed under the MIT License. See the `LICENSE.md` file for details.
+- The Walking Dead (season one)
+- The Walking Dead: Season Two
 
 # Credits
 Original credits go to software's respective authors:<br>
