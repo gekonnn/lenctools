@@ -8,7 +8,7 @@ Telltale games use <b>.lenc</b> files which store the Lua bytecode, which in som
 
 ## Tools
 lenctools includes Lua 5.1.2 ([luac](https://www.lua.org/manual/5.1/luac.html)) and [unluac](https://sourceforge.net/projects/unluac/), both modified for use with the `.lenc` files using swapped opcodes.<br/><br/>
-Alternatively, instead of using modified `unluac` you can also use the original version with the `--opmap` parameter specifying the [opmap.txt](misc/opmap.txt) file, included in the repository.
+Alternatively, instead of using modified `unluac` you can also use the original version with the `--opmap` parameter specifying the [opmap.txt](src/misc/opmap.txt) file, included in the repository.
 
 ## Support
 `luac` and `unluac` were tested and confirmed working on following games:
