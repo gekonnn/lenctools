@@ -49,7 +49,7 @@ public class OpcodeMap {
       map[18] = Op.MUL;       // from UNM
       map[19] = Op.DIV;       // from NOT
       map[20] = Op.MOD;       // from LEN
-      map[21] = null;         // from CONCAT
+      map[21] = Op.POW;       // from CONCAT
       map[22] = Op.UNM;       // from JMP
       map[23] = Op.NOT;       // from EQ
       map[24] = Op.LEN;       // from LT
