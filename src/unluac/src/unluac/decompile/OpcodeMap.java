@@ -26,7 +26,7 @@ public class OpcodeMap {
   
   public OpcodeMap(Version.OpcodeMapType type) {
     init_lookup();
-    if (type == LUA51) {
+    if (type == Version.OpcodeMapType.LUA51) {
       map = new Op[45];
       map[0] = null;          // from MOVE       /* unused */
       map[1] = Op.MOVE;       // from LOADK
