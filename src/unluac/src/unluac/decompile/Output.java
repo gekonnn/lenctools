@@ -40,12 +40,14 @@ public class Output {
   
   public void indent() {
     start = true;
-    indentationLevel += 2;
+    indentationLevel++;
   }
   
   public void dedent() {
     paragraph = false;
-    indentationLevel -= 2;
+    if (indentationLevel > 0) {
+      indentationLevel--;
+    }
   }
   
   public void paragraph() {
@@ -66,8 +68,8 @@ public class Output {
   
   private void start() {
     if(position == 0) {
-      for(int i = indentationLevel; i != 0; i--) {
-        out.print(" ");
+      for(int i = 0; i < indentationLevel; i++) {
+        out.print("\t");
         position++;
       }
       if(paragraph && !start) {

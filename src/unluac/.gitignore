@@ -1,4 +1,5 @@
 /out
 /.idea
 /src/META-INF
+/src/unluac/.idea
 *.iml
