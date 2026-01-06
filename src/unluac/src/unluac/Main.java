@@ -24,7 +24,7 @@ import unluac.util.FileUtils;
 
 public class Main {
 
-  public static String version = "1.2.3.530 unluac";
+  public static String version = "1.2.3.530 lenctools";
   
   public static void main(String[] args) {
     String fn = null;
