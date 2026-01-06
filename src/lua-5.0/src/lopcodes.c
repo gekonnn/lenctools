@@ -16,7 +16,8 @@
 
 #ifdef LUA_OPNAMES
 
-const char *const luaP_opnames[] = {
+const char *const luaP_opnames[45] = {
+  "",
   "MOVE",
   "LOADK",
   "LOADBOOL",
@@ -24,11 +25,14 @@ const char *const luaP_opnames[] = {
   "GETUPVAL",
   "GETGLOBAL",
   "GETTABLE",
+  "",
   "SETGLOBAL",
   "SETUPVAL",
   "SETTABLE",
   "NEWTABLE",
+  "",
   "SELF",
+  "",
   "ADD",
   "SUB",
   "MUL",
@@ -37,22 +41,29 @@ const char *const luaP_opnames[] = {
   "UNM",
   "NOT",
   "CONCAT",
+  "",
   "JMP",
   "EQ",
   "LT",
   "LE",
   "TEST",
   "CALL",
-  "TAILCALL",
   "RETURN",
+  "TAILCALL",
+  "",
   "FORLOOP",
   "TFORLOOP",
   "TFORPREP",
   "SETLIST",
   "SETLISTO",
+  "",
   "CLOSE",
-  "CLOSURE"
+  "CLOSURE",
+  "",
+  "",
+  ""
 };
+
 
 #endif
 

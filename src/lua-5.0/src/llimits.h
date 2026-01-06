@@ -140,7 +140,7 @@ typedef unsigned long Instruction;
 
 
 /* maximum stack for a Lua function */
-#define MAXSTACK	250
+#define MAXSTACK	300
 
 
 /* maximum number of variables declared in a function */
