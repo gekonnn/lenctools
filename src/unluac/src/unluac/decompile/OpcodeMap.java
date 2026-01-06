@@ -28,7 +28,7 @@ public class OpcodeMap {
     init_lookup();
 
     if (type == Version.OpcodeMapType.LUA50) {
-      map = new Op[45];
+      map = new Op[42];
       map[0] = null;
       map[1] = Op.MOVE;
       map[2] = Op.LOADK;
