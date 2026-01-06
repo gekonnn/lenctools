@@ -10,7 +10,7 @@ public class OpcodeMap {
 
   private Op[] map;
   private Map<String, Op> lookup;
-  
+
   public OpcodeMap(Map<Integer, Op> useropmap) {
     int max = -1;
     for(int opcode : useropmap.keySet()) {
@@ -23,10 +23,55 @@ public class OpcodeMap {
     init_lookup();
     setup_lookup(false);
   }
-  
+
   public OpcodeMap(Version.OpcodeMapType type) {
     init_lookup();
-    if (type == Version.OpcodeMapType.LUA51) {
+
+    if (type == Version.OpcodeMapType.LUA50) {
+      map = new Op[45];
+      map[0] = null;
+      map[1] = Op.MOVE;
+      map[2] = Op.LOADK;
+      map[3] = Op.LOADBOOL;
+      map[4] = Op.LOADNIL;
+      map[5] = Op.GETUPVAL;
+      map[6] = Op.GETGLOBAL;
+      map[7] = Op.GETTABLE;
+
+      map[9] = Op.SETGLOBAL;
+      map[10] = Op.SETUPVAL;
+      map[11] = Op.SETTABLE;
+      map[12] = Op.NEWTABLE;
+
+      map[14] = Op.SELF;
+
+      map[16] = Op.ADD;
+      map[17] = Op.SUB;
+      map[18] = Op.MUL;
+      map[19] = Op.DIV;
+      map[20] = Op.POW;
+      map[21] = Op.UNM;
+      map[22] = Op.NOT;
+      map[23] = Op.CONCAT;
+
+      map[25] = Op.JMP;
+      map[26] = Op.EQ;
+      map[27] = Op.LT;
+      map[28] = Op.LE;
+      map[29] = Op.TEST;
+      map[30] = Op.CALL;
+      map[31] = Op.RETURN;
+      map[32] = Op.TAILCALL;
+
+      map[34] = Op.FORLOOP;
+      map[35] = Op.TFORLOOP;
+      map[36] = Op.TFORPREP;
+      map[37] = Op.SETLIST;
+      map[38] = Op.SETLISTO;
+
+      map[40] = Op.CLOSE;
+      map[41] = Op.CLOSURE;
+    } else if (type == Version.OpcodeMapType.LUA51) {
       map = new Op[45];
       map[0] = null;          // from MOVE       /* unused */
       map[1] = Op.MOVE;       // from LOADK
@@ -80,7 +125,7 @@ public class OpcodeMap {
     }
     setup_lookup(false);
   }
-  
+
   public Op get(int opNumber) {
     if(opNumber >= 0 && opNumber < map.length) {
       return map[opNumber];
@@ -88,29 +133,29 @@ public class OpcodeMap {
       return null;
     }
   }
-  
+
   public Op get(String name) {
     return lookup.get(name);
   }
-  
+
   public int size() {
     return map.length;
   }
-  
+
   private void init_lookup() {
     lookup = new HashMap<String, Op>();
   }
-  
+
   private void allow_51_math_lookup() {
     Op[] ops = {Op.MOD, Op.LEN};
     allow_ops_lookup(ops);
   }
-  
+
   private void allow_53_math_lookup() {
     Op[] ops = {Op.IDIV, Op.BAND, Op.BOR, Op.BXOR, Op.SHL, Op.SHR, Op.BNOT};
     allow_ops_lookup(ops);
   }
-  
+
   private void allow_ops_lookup(Op[] ops) {
     for(Op op : ops) {
       String name = op.name;
@@ -121,7 +166,7 @@ public class OpcodeMap {
       }
     }
   }
-  
+
   private void setup_lookup(boolean validate) {
     for(int i = 0; i < map.length; i++) {
       if(map[i] != null) {
@@ -136,6 +181,6 @@ public class OpcodeMap {
       }
     }
   }
-  
+
 }
 

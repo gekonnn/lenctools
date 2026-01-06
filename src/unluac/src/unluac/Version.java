@@ -181,7 +181,7 @@ public class Version {
           environmenttable = new Setting<>(null);
           useifbreakrewrite = new Setting<>(false);
           usegoto = new Setting<>(false);
-          rkoffset = new Setting<>(250);
+          rkoffset = new Setting<>(300); // MAXSTACK -> 300
           allownegativeint = new Setting<Boolean>(false);
           constantslengthmode = new Setting<>(ListLengthMode.STRICT);
           functionslengthmode = new Setting<>(ListLengthMode.STRICT);
